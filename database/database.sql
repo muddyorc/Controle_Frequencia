@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS turmas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    descricao TEXT
+);
+
+CREATE TABLE IF NOT EXISTS alunos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    turma_id INTEGER NOT NULL,
+    FOREIGN KEY (turma_id) REFERENCES turmas(id)
+);
+
+CREATE TABLE IF NOT EXISTS presencas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    aluno_id INTEGER NOT NULL,
+    turma_id INTEGER NOT NULL,
+    data TEXT NOT NULL,
+    FOREIGN KEY (aluno_id) REFERENCES alunos(id),
+    FOREIGN KEY (turma_id) REFERENCES turmas(id)
+);

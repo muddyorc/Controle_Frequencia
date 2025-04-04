@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Frequência</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistema de Controle de Frequência</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="trocarAba(event, 'turmas')">Turmas</a></li>
+                <li><a href="#" onclick="trocarAba(event, 'alunos')">Alunos</a></li>
+                <li><a href="#" onclick="trocarAba(event, 'presenca')">Presença</a></li>
+                <li><a href="#" onclick="trocarAba(event, 'relatorios')">Relatórios</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="turmas" class="aba">
+            <h2>Cadastro de Turmas</h2>
+            <input type="text" id="turmaNome" placeholder="Nome da turma">
+            <input type="text" id="turmaDescricao" placeholder="Descrição">
+            <button onclick="cadastrarTurma()">Cadastrar Turma</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody id="listaTurmas"></tbody>
+            </table>
+        </section>
+        
+        <section id="alunos" class="aba" style="display:none;">
+            <h2>Cadastro de Alunos</h2>
+            <input type="text" id="alunoNome" placeholder="Nome do aluno">
+            <select id="turmaSelect"></select>
+            <button onclick="cadastrarAluno()">Cadastrar Aluno</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Turma</th>
+                    </tr>
+                </thead>
+                <tbody id="listaAlunos"></tbody>
+            </table>
+        </section>
+        
+        <section id="presenca" class="aba" style="display:none;">
+            <h2>Marcar Presença</h2>
+            <select id="turmaPresenca"></select>
+            <select id="alunoPresenca"></select>
+            <input type="date" id="dataPresenca">
+            <button onclick="marcarPresenca()">Marcar</button>
+        </section>
+        
+        <section id="relatorios" class="aba" style="display:none;">
+            <h2>Consultar Frequência</h2>
+            <select id="turmaConsulta"></select>
+            <input type="date" id="dataConsulta">
+            <button onclick="consultarFrequencia()">Consultar</button>
+            <div id="resultadoConsulta"></div>
+        </section>
+    </main>
+    
+    <script src="/public/js/script.js"></script>
+</body>
+</html>
